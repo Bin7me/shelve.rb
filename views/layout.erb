@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <!--
+    Ultima Cumaei venit iam carminis aetas;
+    magnus ab integro saeclorum nascitur ordo.
+    iam redit et Virgo, redeunt Saturnia regna,
+    iam nova progenies caelo demittitur alto.
+
+    Iuppiter omnipotens, audacibus annue coeptis.
+
+                    /\
+                   /  \
+                  /    \
+                 /.-""-.\
+                /< (()) >\
+               /  `-..-'  \
+              /            \
+             /              \
+            /________________\
+           
+    -->
+    <meta charset="utf-8">
+    <title>Shelve.rb</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/css/gridism.css">
+  </head>
+  <body class="wrap wider">
+    <div class="grid">
+
+      <div class="unit one-quarter">
+
+        <div class="default-sidebar">
+          <a href="/">home</a>
+          <a href="/books">books</a>
+          <a href="/authors">authors</a>
+        </div>
+
+        <div class="mobile-sidebar">
+          mobile sidebar
+        </div>
+
+      </div> <!-- /one-quarter -->
+
+      <div class="unit three-quarters">
+        <%= yield %>
+      </div> <!-- /three-quarters -->
+
+    </div> <!-- /grid -->
+  </body>
+</html>
