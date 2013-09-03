@@ -96,7 +96,7 @@ module EbookReader
     book[:title] = book_result[1]
     book[:sort] = book_result[2]
     book[:authors] = authors_result
-    book[:description] = description
+    book[:description] = Nokogiri::HTML(description).inner_text
 
     book
   end
