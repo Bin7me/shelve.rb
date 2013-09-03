@@ -1,6 +1,7 @@
 #!/bin/env ruby
 
 require 'sqlite3'
+require 'nokogiri'
 
 module EbookReader
 
@@ -88,11 +89,14 @@ module EbookReader
 
     authors_result = execute("SELECT author FROM books_authors_link WHERE book = #{book_id} ORDER BY author").flatten
 
+    description = execute("SELECT text FROM comments WHERE book = #{book_id}").flatten[0]
+
     book = Hash.new
     book[:id] = book_result[0]
     book[:title] = book_result[1]
     book[:sort] = book_result[2]
     book[:authors] = authors_result
+    book[:description] = description
 
     book
   end
