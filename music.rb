@@ -1,9 +1,13 @@
 #!/bin/env ruby
 
 module MusicReader
-  MUSICDIR = "public/music"
+  @MUSICDIR = "public/music"
   MUSIC_REGEX = /.mp3\z|.ogg\z|.wav\z|.flac\z/i
   COVER_REGEX = /.jpg\z|.png\z|.gif\z/i
+
+  class << self
+    attr_reader :MUSICDIR
+  end
 
   def self.all_artists()
     names = list_subfolders(MUSICDIR).sort
