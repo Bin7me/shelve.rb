@@ -1,6 +1,6 @@
-<h1><%= @author[:name] %></h1>
+<h1><%= @author.name %></h1>
 <ul>
 <% @books.each do |book| %>
-  <li><a href="/book/<%= book[:id] %>"><%= book[:title] %></li>
+  <li><a href="/book/<%= book.id %>"><%= book.title %></li>
 <% end %>
 </ul>

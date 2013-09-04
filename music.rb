@@ -1,7 +1,7 @@
 #!/bin/env ruby
 
 module MusicReader
-  MUSICDIR = "music"
+  MUSICDIR = "public/music"
   MUSIC_REGEX = /.mp3\z|.ogg\z|.wav\z|.flac\z/i
   COVER_REGEX = /.jpg\z|.png\z|.gif\z/i
 

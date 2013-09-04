@@ -26,7 +26,7 @@ get '/author/:id' do
   @author = EbookReader.author(params[:id])
   @books = []
 
-  @author[:books].each do |book_id|
+  @author.books.each do |book_id|
     @books << EbookReader.book(book_id)
   end
 
@@ -37,7 +37,7 @@ get '/book/:id' do
   @book = EbookReader.book(params[:id])
   @authors = []
 
-  @book[:authors].each do |author_id|
+  @book.authors.each do |author_id|
     @authors << EbookReader.author(author_id)
   end
 
