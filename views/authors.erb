@@ -1,6 +1,6 @@
 <h1>Authors</h1>
 <ul>
-<% @all_authors.each do |author| %>
+<% @authors.each do |author| %>
   <li> <a href="/author/<%= author[:id] %>"><%= author[:name] %></a> </li> 
 <% end %>
 </ul>

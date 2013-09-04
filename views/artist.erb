@@ -1,0 +1,18 @@
+<h1><%= @artist %></h1>
+<% if !@albums.empty? %>
+  <h2>Albums</h2>
+  <ul>
+    <% @albums.each do |album| %>
+      <li><a href="#"><%= album %></a></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if !@tracks.empty? %>
+  <h2>Single Tracks</h2>
+  <ul>
+    <% @tracks.each do |track| %>
+      <li><a href="#"><%= track %></a></li>
+    <% end %>
+  </ul>
+<% end %>

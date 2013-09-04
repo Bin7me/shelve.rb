@@ -13,12 +13,12 @@ get '/' do
 end
 
 get '/books' do
-  @all_books= EbookReader.all_books
+  @books= EbookReader.all_books
   erb :books
 end
 
 get '/authors' do
-  @all_authors = EbookReader.all_authors
+  @authors = EbookReader.all_authors
   erb :authors
 end
 
@@ -42,4 +42,16 @@ get '/book/:id' do
   end
 
   erb :book
+end
+
+get '/artists' do
+  @artists = MusicReader.all_artists()
+  erb :artists
+end
+
+get '/artist/:name' do
+  @artist = params[:name]
+  @albums = MusicReader.artist_albums(params[:name])
+  @tracks = MusicReader.artist_single_tracks(params[:name])
+  erb :artist
 end

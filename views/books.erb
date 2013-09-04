@@ -1,6 +1,6 @@
 <h1>Books</h1>
 <ul>
-<% @all_books.each do |book| %>
-  <li><a href="/book/<%= book[:id] %>"><%= book[:title] %></li>
-<% end %>
+  <% @books.each do |book| %>
+    <li><a href="/book/<%= book[:id] %>"><%= book[:title] %></li>
+  <% end %>
 </ul>
