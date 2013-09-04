@@ -30,6 +30,8 @@ get '/author/:id' do
     @books << EbookReader.book(book_id)
   end
 
+  @books = @books.sort_by { |b| b.sort }
+
   erb :author
 end
 
