@@ -6,8 +6,67 @@ module MusicReader
   COVER_REGEX = /.jpg\z|.png\z|.gif\z/i
 
   def self.all_artists()
+    names = list_subfolders(MUSICDIR).sort
+    artists = []
+
+    names.each do |name|
+      artist = Hash.new([])
+      artist[:name] = name
+      artist[:albums] = artist_albums name
+      artist[:single_tracks] = artist_single_tracks name
+
+      artists << artist
+    end
+
+    artists
+  end
+
+  def self.artist_names()
     list_subfolders MUSICDIR
   end
+
+  def self.artist(name)
+    artist = Hash.new([])
+    artist[:name] = name
+    artist[:albums] = artist_albums name
+    artist[:single_tracks] = artist_single_tracks name
+
+    artist
+  end
+
+  def self.all_albums()
+    albums = []
+
+    artist_names.each do |artist_name|
+      album_names = artist_albums artist_name
+
+      album_names.each do |album_name|
+        album = Hash.new
+        album[:artist] = artist_name
+        album[:name] = album_name
+        album[:tracks] = album_tracks(artist_name, album_name)
+        album[:cover] = album_cover(artist_name, album_name)
+
+        albums << album
+      end
+    end
+
+    albums = albums.sort_by { |a| a[:name] }
+  end
+
+  def self.album(artist_name, album_name)
+    album = Hash.new
+    album[:artist] = artist_name
+    album[:name] = album_name
+    album[:tracks] = album_tracks(artist_name, album_name)
+    album[:cover] = album_cover(artist_name, album_name)
+
+    album
+  end
+  
+  ##################
+  # HELPER METHODS #
+  ##################
 
   def self.artist_albums(artist_name)
     list_subfolders "#{MUSICDIR}/#{artist_name}"

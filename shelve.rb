@@ -45,13 +45,16 @@ get '/book/:id' do
 end
 
 get '/artists' do
-  @artists = MusicReader.all_artists()
+  @artists = MusicReader.artist_names()
   erb :artists
 end
 
 get '/artist/:name' do
-  @artist = params[:name]
-  @albums = MusicReader.artist_albums(params[:name])
-  @tracks = MusicReader.artist_single_tracks(params[:name])
+  @artist = MusicReader.artist(params[:name])
   erb :artist
+end
+
+get '/albums' do
+  @albums = MusicReader.all_albums
+  erb :albums
 end

@@ -1,0 +1,6 @@
+<h1>Music by Album</h1>
+<ul>
+  <% @albums.each do |album| %>
+    <li><a href="#"><%= album[:name] %></a></li>
+  <% end %>
+</ul>
