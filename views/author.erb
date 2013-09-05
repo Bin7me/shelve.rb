@@ -1,6 +1,8 @@
 <h1><%= @author.name %></h1>
-<ul>
-<% @books.each do |book| %>
-  <li><a href="/book/<%= book.id %>"><%= book.title %></li>
-<% end %>
-</ul>
+<h2>Books</h2>
+  <% @books.each do |book| %>
+    <div class="book-div">
+	  <a href="/book/<%= book.id %>"><img class="book-cover" src="/<%= book.cover %>" /></a><br />
+	  <a href="/book/<%= book.id %>"><%= book.title %></a>
+    </div>
+  <% end %>
