@@ -1,8 +1,23 @@
 <h1><%= @book.title %></h1>
 <a href="/<%= @book.path %>">
-  <img src="/<%= @book.cover %>" />
+  <img class="book-cover" src="/<%= @book.cover %>" />
 </a>
-<% @authors.each do |author| %>
-  <p><a href="/author/<%= author.id %>"><%= author.name %></a></p>
+
+<% if @authors.size > 1 %>
+  <h2>Authors</h2>
+  <ul class="author-list">
+    <% @authors.each do |author| %>
+      <li><a href="/author/<%= author.id %>"><%= author.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h2>Author</h2>
+  <% @authors.each do |author| %>
+    <p><a href="/author/<%= author.id %>"><%= author.name %></a></p>
+  <% end %>
 <% end %>
-<p><%= @book.description %></p>
+
+<% if @book.description.length > 0 %>
+  <h2>Description</h2>
+  <p><%= @book.description %></p>
+<% end %>

@@ -22,31 +22,36 @@
     <meta charset="utf-8">
     <title>Shelve.rb</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/gridism.css">
+    <link rel="stylesheet" href="/css/style.css">
   </head>
   <body class="wrap wider">
+    <header>
+      <div class="grid">
+        <div class="unit whole">
+          <div class="default-sidebar">
+            <nav class="top-nav">
+              <ul> 
+                <li><a href="/">home</a></li>
+                <li><a href="/books">books</a></li>
+                <li><a href="/authors">authors</a></li>
+                <!-- <a href="/artists">artists</a> -->
+                <!-- <a href="/albums">albums</a> -->
+              </ul>
+            </nav>
+          </div>
+        </div> <!-- /whole -->
+      </div> <!-- /grid -->
+    </header>
+
     <div class="grid">
+      <div class="unit whole">
+        <article>
+          <%= yield %>
+        </article>
+      </div>
+    </div>
 
-      <div class="unit one-quarter">
-
-        <div class="default-sidebar">
-          <a href="/">home</a>
-          <a href="/books">books</a>
-          <a href="/authors">authors</a>
-          <a href="/artists">artists</a>
-          <a href="/albums">albums</a>
-        </div>
-
-        <div class="mobile-sidebar">
-          mobile sidebar
-        </div>
-
-      </div> <!-- /one-quarter -->
-
-      <div class="unit three-quarters">
-        <%= yield %>
-      </div> <!-- /three-quarters -->
-
-    </div> <!-- /grid -->
   </body>
 </html>

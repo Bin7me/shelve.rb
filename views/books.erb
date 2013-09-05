@@ -1,6 +1,7 @@
 <h1>Books</h1>
-<ul>
   <% @books.each do |book| %>
-    <li><a href="/book/<%= book.id %>"><%= book.title %></li>
+    <div class="book-div">
+      <img class="book-cover" src="/<%= book.cover %>" /><br />
+      <a href="/book/<%= book.id %>"><%= book.title %>
+    </div>
   <% end %>
-</ul>
