@@ -60,3 +60,8 @@ get '/albums' do
   @albums = MusicReader.all_albums
   erb :albums
 end
+
+get '/artist/:name/:album' do
+  @album = MusicReader.album(params[:name], params[:album])
+  erb :album
+end

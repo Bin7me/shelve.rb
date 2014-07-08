@@ -10,7 +10,7 @@ module MusicReader
   end
 
   def self.all_artists()
-    names = list_subfolders(MUSICDIR).sort
+    names = list_subfolders(self.MUSICDIR).sort
     artists = []
 
     names.each do |name|
@@ -26,7 +26,7 @@ module MusicReader
   end
 
   def self.artist_names()
-    list_subfolders MUSICDIR
+    list_subfolders self.MUSICDIR
   end
 
   def self.artist(name)
@@ -73,20 +73,20 @@ module MusicReader
   ##################
 
   def self.artist_albums(artist_name)
-    list_subfolders "#{MUSICDIR}/#{artist_name}"
+    list_subfolders "#{self.MUSICDIR}/#{artist_name}"
   end
 
   def self.artist_single_tracks(artist_name)
-    list_files_in_folder("#{MUSICDIR}/#{artist_name}").select { |track| track =~ MUSIC_REGEX }
+    list_files_in_folder("#{self.MUSICDIR}/#{artist_name}").select { |track| track =~ MUSIC_REGEX }
   end
 
   def self.album_tracks(artist_name, album_name)
-    list_files_in_folder("#{MUSICDIR}/#{artist_name}/#{album_name}").select { |track| track =~ MUSIC_REGEX }
+    list_files_in_folder("#{self.MUSICDIR}/#{artist_name}/#{album_name}").select { |track| track =~ MUSIC_REGEX }
   end
 
   def self.album_cover(artist_name, album_name)
-    covers = list_files_in_folder("#{MUSICDIR}/#{artist_name}/#{album_name}").select { |f| f =~ COVER_REGEX }
-    covers.first
+    covers = list_files_in_folder("#{self.MUSICDIR}/#{artist_name}/#{album_name}").select { |f| f =~ COVER_REGEX }
+    "#{self.MUSICDIR}/#{artist_name}/#{album_name}/#{covers.first}".gsub('public/', '')
   end
 
   def self.list_subfolders(path_to_folder)

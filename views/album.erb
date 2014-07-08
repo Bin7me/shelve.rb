@@ -1,0 +1,13 @@
+<h1><%= @album[:artist] %></h1>
+<h2><%= @album[:name] %></h2>
+<a href="/<%= @album[:cover] %>">
+  <img src="/<%= @album[:cover] %>" />
+</a>
+<% if !@album[:tracks].empty? %>
+  <h3>Tracklist</h3>
+  <ul>
+    <% @album[:tracks].each do |track| %>
+      <li><a href="#"><%= track%></a></li>
+    <% end %>
+  </ul>
+<% end %>

@@ -3,7 +3,7 @@
   <h2>Albums</h2>
   <ul>
     <% @artist[:albums].each do |album| %>
-      <li><a href="#"><%= album %></a></li>
+	  <li><a href="/artist/<%= @artist[:name] %>/<%= album %>"><%= album %></a></li>
     <% end %>
   </ul>
 <% end %>
